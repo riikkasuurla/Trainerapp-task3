@@ -5,17 +5,14 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
-import EditIcon from '@material-ui/icons/Edit';
 
-export default function EditCustomer(props) {
+export default function Addcar(props) {
     const [open, setOpen] = React.useState(false);
     const [customer, setCustomer] = React.useState({
         firstname: '', lastname: '', streetaddress: '', postcode: '', city: '', email: '', phone:''
     })
 
     const handleClickOpen = () => {
-        setCustomer({firstname: props.customer.firstname, lastname: props.customer.lastname, streetaddress: props.customer.streetaddress, 
-                postcode: props.customer.postcode, city: props.customer.city, email: props.customer.email, phone: props.customer.phone})
         setOpen(true);
     };
 
@@ -27,17 +24,19 @@ export default function EditCustomer(props) {
         setCustomer({...customer, [event.target.name]: event.target.value})
     }
 
-    const updateCustomer = () => {
-        props.updateCustomer(customer, props.customer.links['1'].href);
+    const addCustomer = () => {
+        props.saveCustomer(customer);
         handleClose();
     }
 
+
     return (
         <div>
-        <EditIcon color="inherit" onClick={handleClickOpen}>
-            </EditIcon>
+          <Button color="primary" onClick={handleClickOpen}>
+        Add Customer
+      </Button>
       <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">Edit Customer</DialogTitle>
+        <DialogTitle id="form-dialog-title">Add a New Customer</DialogTitle>
             <DialogContent>
                 <TextField
                     autoFocus
@@ -101,7 +100,7 @@ export default function EditCustomer(props) {
                 <Button onClick={handleClose} color="primary">
                     Cancel
                 </Button>
-                <Button onClick={updateCustomer} color="primary">
+                <Button onClick={addCustomer} color="primary">
                     Save
                 </Button>
             </DialogActions>
