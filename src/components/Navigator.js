@@ -18,6 +18,9 @@ const Navigator = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/Trainingslist">Trainings</Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/Calendar">Calendar</Link>
+            </li>
           </ul>
         </div>
       </nav>

@@ -28,3 +28,9 @@ body {
     margin: 35px;
     background-color: white;
 }
+
+.Calendar {
+    background-color: white;
+    margin: 35px;
+    padding: 10px;
+}
